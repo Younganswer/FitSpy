@@ -4,6 +4,7 @@
 
 ## Index
 ### [Introduction](#introduction)
+### [Contact](#contact)
 <br/><br/><br/>
 
 ## Introduction
