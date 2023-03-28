@@ -7,7 +7,7 @@
 <br/><br/><br/>
 
 ## Introduction
-A simple, lightweight, and easy-to-use fitness tracker app. My personal trainer can trace my fitness progress.
+### A simple, lightweight, and easy-to-use fitness tracker app. My personal trainer can trace my fitness progress.
 <br/><br/><br/>
 
 ## Contact
