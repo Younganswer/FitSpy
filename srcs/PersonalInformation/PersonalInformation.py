@@ -1,15 +1,12 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 class PersonalInformation:
-    def __init__(self, name, phoneNumber, sex, email, accountType, id, password):
+    def __init__(self, identity, password, name, phoneNumber, sex, email, accountType):
+        self.__identity = identity
+        self.__password = password
         self.__name = name
         self.__phoneNumber = phoneNumber
         self.__sex = sex
         self.__email = email
         self.__accountType = accountType
-        self.__id = id
-        self.__password = password
 
     def getName(self):
         return (self.__name)
@@ -26,8 +23,8 @@ class PersonalInformation:
     def getAccountType(self):
         return (self.__accountType)
 
-    def getId(self):
-        return (self.__id)
+    def getIdentity(self):
+        return (self.__identity)
 
     def getPassword(self):
         return (self.__password)

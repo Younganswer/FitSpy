@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 class FitnessData:
     def __init__(self, amountOfUsedCalories=0, timeOfWorkedOut=0):
         self.__amountOfUsedCalories = amountOfUsedCalories
