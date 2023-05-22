@@ -13,7 +13,7 @@ venv: ${VENV}
 	@printf "done\n"
 	
 ${VENV}:
-	@printf "Create virtual environment... "
+	@printf "Create virtual environment ... "
 	@python3 -m venv ${VENV}
 	@printf "done\n"
 
@@ -23,12 +23,12 @@ freeze:
 	@printf "done\n"
 
 activate: ${VENV}
-	@printf "Activate virtual environment... "
+	@printf "Activate virtual environment ... "
 	@source ${VENV}/bin/activate
 	@printf "done\n"
 
 deactivate:
-	@printf "Deactivate virtual environment... "
+	@printf "Deactivate virtual environment ... "
 	@deactivate
 	@printf "done\n"
 
