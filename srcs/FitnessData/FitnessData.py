@@ -1,16 +1,16 @@
 class FitnessData:
-	def __init__(self, amountOfUsedCalories=0, timeOfWorkedOut=0):
-		self.__amountOfUsedCalories = amountOfUsedCalories
-		self.__timeOfWorkedOut = timeOfWorkedOut
+	def __init__(self, amount_of_used_calories=0, time_of_worked_out=0):
+		self.__amount_of_used_calories = amount_of_used_calories
+		self.__time_of_worked_out = time_of_worked_out
 
-	def getAmountOfUsedCalories(self):
-		return (self.__amountOfUsedCalories)
+	def get_amount_of_used_calories(self):
+		return (self.__amount_of_used_calories)
 
-	def getTimeOfWorkedOut(self):
-		return (self.__timeOfWorkedOut)
+	def get_time_of_worked_out(self):
+		return (self.__time_of_worked_out)
 
-	def setAmountOfUsedCalories(self, amountOfUsedCalories):
-		self.__amountOfUsedCalories = amountOfUsedCalories
+	def set_amount_of_used_calories(self, amount_of_used_calories):
+		self.__amount_of_used_calories = amount_of_used_calories
 
-	def setTimeOfWorkedOut(self, timeOfWorkedOut):
-		self.__timeOfWorkedOut = timeOfWorkedOut
+	def set_time_of_worked_out(self, time_of_worked_out):
+		self.__time_of_worked_out = time_of_worked_out

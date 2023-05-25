@@ -1,25 +1,19 @@
 class UserData:
-    def __init__(self, personalInformation):
-        self.__personalInformation = personalInformation
-        self.__progress = []
+	def __init__(self, personal_information):
+		self.__personal_information = personal_information
+		self.__progresses = []
 
-    def __del__(self):
-        pass
+	def __del__(self):
+		pass
 
-    def getPersonalInformation(self):
-        return self.__personalInformation
+	def get_personal_information(self):
+		return self.__personal_information
 
-    def getProgress(self):
-        return self.__progress
+	def get_progress(self):
+		return self.__progresses
 
-    def appendProgress(self, progress):
-        self.__progress.append(progress)
+	def append_progress(self, progress):
+		self.__progresses.append(progress)
 
-    def getIDPW(self):
-        return [
-            self.__personalInformation.getId(),
-            self.__personalInformation.getPassword(),
-        ]
-
-    def getAccountType(self):
-        return self.__personalInformation.getAccountType()
+	def get_account_type(self):
+		return self.__personal_information.get_account_type()

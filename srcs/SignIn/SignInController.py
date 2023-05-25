@@ -1,13 +1,14 @@
-from UserDB.DB import DB
+from DB.DB import DB
 
 
 class SignInController:
-    def __init__(self):
-        self.db = DB().get_DB()
-        self.accounts = dict([i.getIDPW() for i in self.db])
-        self.IDs = [key for key in self.accounts]
+	def __init__(self):
+		pass
 
-    def validate(self, identity, password):
-        if identity in self.IDs:
-            return self.accounts[identity] == password
-        return False
+	@staticmethod
+	def	get_user_data(self, identity, password):
+		user_data = DB.get_user_data()
+		for user in user_data:
+			if user.get_identity() == identity and user.get_password() == password:
+				return user
+		return None

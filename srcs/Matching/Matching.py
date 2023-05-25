@@ -2,20 +2,18 @@ import os
 import sys
 import random
 
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from UserDB.DB import DB
+from DB.DB import DB
 
 
 class Matching:
-    def __init__(self):
-        self.__db = DB().get_DB()
-        self.__Trainers = [
-            i.getPersonalInformation().getName()
-            for i in self.__db
-            if i.getAccountType() == "Trainer"
-        ]
+	def __init__(self):
+		pass
 
-    def MatchingTrainer(self):
-        return self.__Trainers[
-            random.randint(0, len(self.__Trainers)) % len(self.__Trainers)
-        ]
+	@staticmethod
+	def matching_trainer(self):
+		user_data = DB.get_user_data()
+		trainer_list = []
+		for user in user_data:
+			if user.get_account_type() == "trainer":
+				trainer_list.append(user)
+		return random.choice(trainer_list)

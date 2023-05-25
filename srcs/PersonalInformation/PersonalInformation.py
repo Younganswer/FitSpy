@@ -1,36 +1,36 @@
 class PersonalInformation:
-    def __init__(self, identity, password, name, phoneNumber, sex, email, accountType):
-        self.__identity = identity
-        self.__password = password
-        self.__name = name
-        self.__phoneNumber = phoneNumber
-        self.__sex = sex
-        self.__email = email
-        self.__accountType = accountType
+	def __init__(self, identity, password, name, phone_number, sex, email, account_type):
+		self.__identity = identity
+		self.__password = password
+		self.__name = name
+		self.__phoneNumber = phone_number
+		self.__sex = sex
+		self.__email = email
+		self.__accountType = account_type
 
-    def getName(self):
-        return self.__name
+	def get_name(self):
+		return self.__name
 
-    def getPhoneNumber(self):
-        return self.__phoneNumber
+	def get_phone_number(self):
+		return self.__phone_number
 
-    def getSex(self):
-        return self.__sex
+	def get_sex(self):
+		return self.__sex
 
-    def getEmail(self):
-        return self.__email
+	def get_email(self):
+		return self.__email
 
-    def getAccountType(self):
-        return self.__accountType
+	def get_account_type(self):
+		return self.__account_type
 
-    def getIdentity(self):
-        return self.__identity
+	def get_identity(self):
+		return self.__identity
 
-    def getPassword(self):
-        return self.__password
+	def get_password(self):
+		return self.__password
 
-    def setEmail(self, email):
-        self.__email = email
+	def set_email(self, email):
+		self.__email = email
 
-    def setPassword(self, password):
-        self.__password = password
+	def set_password(self, password):
+		self.__password = password
