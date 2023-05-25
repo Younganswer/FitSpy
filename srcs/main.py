@@ -3,9 +3,10 @@ import sys
 
 from PageController.PageController import PageController
 
+
 def initDB():
-	db = []
-	"""
+    db = []
+    """
 	user1 = UserData(PersonalInformaion(identity, password, name, phoneNumber, sex, email, accountType))
 	user2 = UserData(PersonalInformaion(identity, password, name, phoneNumber, sex, email, accountType))
 	user3 = UserData(PersonalInformaion(identity, password, name, phoneNumber, sex, email, accountType))
@@ -13,7 +14,7 @@ def initDB():
 	db.append(user2)
 	db.append(user3)
 	"""
-	return db
+    return db
 
 
 """
@@ -27,13 +28,13 @@ TODO: AI도 하나의 객체(시스템)로 만들어야한다.
 
 
 def main():
-	# db = initDB()
-	window = PageController()
-	window.mainloop()
-	return 0
+    # db = initDB()
+    window = PageController()
+    window.mainloop()
+    return 0
 
 
 if __name__ == "__main__":
-	os.environ["TK_SILENCE_DEPRECATION"] = "1"
-	sys.path.append("srcs")
-	main()
+    os.environ["TK_SILENCE_DEPRECATION"] = "1"
+    sys.path.append("srcs")
+    main()
