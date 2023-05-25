@@ -4,141 +4,103 @@ from tkinter import messagebox
 
 
 class SignUp(tk.Frame):
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent, background="lightgray")
-        self.__controller = controller
-        self.__setWidgets()
-        self.__show()
+	def __init__(self, parent, controller):
+		tk.Frame.__init__(self, parent)
+		self.__controller = controller
+		self.__set_widgets()
+		
 
-    def __del__(self):
-        pass
+	def __del__(self):
+		pass
 
-    def __setWidgets(self):
-        self.__setGridConfigure()
-        self.__setTitle()
-        self.__setLabels()
-        self.__setEnties()
-        self.__setButton()
+	def __set_widgets(self):
+		self.__set_title()
+		self.__set_labels()
+		self.__setEnties()
+		self.__setButton()
 
-    def __setGridConfigure(self):
-        self.grid_rowconfigure(0, minsize=135)
-        self.grid_rowconfigure(1, minsize=50)
-        self.grid_rowconfigure(2, minsize=40)
-        self.grid_rowconfigure(3, minsize=20)
-        self.grid_rowconfigure(4, minsize=20)
-        self.grid_rowconfigure(5, minsize=20)
-        self.grid_rowconfigure(6, minsize=20)
-        self.grid_rowconfigure(7, minsize=20)
-        self.grid_rowconfigure(8, minsize=20)
-        self.grid_rowconfigure(9, minsize=20)
-        self.grid_rowconfigure(10, minsize=10)
-        self.grid_rowconfigure(11, minsize=20)
-        self.grid_rowconfigure(12, minsize=245)
-        self.grid_columnconfigure(0, minsize=45)
-        self.grid_columnconfigure(1, minsize=100)
-        self.grid_columnconfigure(2, minsize=170)
-        self.grid_columnconfigure(3, minsize=45)
+	def __set_title(self):
+		self.__title = ttk.Label(self, text="Fitspy", font=("Helvetica", 30))
+		self.__title.place(x=180, y=120, anchor="center")
 
-    def __setTitle(self):
-        self.__title = ttk.Label(
-            self, text="Fitspy", font=("Helvetica", 30), background="lightgray"
-        )
-        self.__title.grid(row=1, column=1, columnspan=2)
+	def __set_labels(self):
+		self.__identity_label = ttk.Label(self, text="ID")
+		self.__password_label = ttk.Label(self, text="Password")
+		self.__name_label = ttk.Label(self, text="Name")
+		self.__phone_number_label = ttk.Label(self, text="Phone Number")
+		self.__sex_label = ttk.Label(self, text="Sex")
+		self.__email_label = ttk.Label(self, text="Email")
+		self.__account_type_label = ttk.Label(self, text="Account Type")
+		self.__identity_label.place(x=100, y=230, width=110, height=20, anchor="center")
+		self.__password_label.place(x=100, y=260, width=110, height=20, anchor="center")
+		self.__name_label.place(x=100, y=290, width=110, height=20, anchor="center")
+		self.__phone_number_label.place(x=100, y=320, width=110, height=20, anchor="center")
+		self.__sex_label.place(x=100, y=350, width=110, height=20, anchor="center")
+		self.__email_label.place(x=100, y=380, width=110, height=20, anchor="center")
+		self.__account_type_label.place(x=100, y=410, width=110, height=20, anchor="center")
 
-    def __setLabels(self):
-        self.__identityLabel = ttk.Label(self, text="ID", background="lightgray")
-        self.__passwordLabel = ttk.Label(self, text="Password", background="lightgray")
-        self.__nameLabel = ttk.Label(self, text="Name", background="lightgray")
-        self.__phoneNumberLabel = ttk.Label(
-            self, text="Phone Number", background="lightgray"
-        )
-        self.__sexLabel = ttk.Label(self, text="Sex", background="lightgray")
-        self.__emailLabel = ttk.Label(self, text="Email", background="lightgray")
-        self.__accountTypeLabel = ttk.Label(
-            self, text="Account Type", background="lightgray"
-        )
-        self.__identityLabel.grid(row=3, column=1, pady=5)
-        self.__passwordLabel.grid(row=4, column=1, pady=5)
-        self.__nameLabel.grid(row=5, column=1, pady=5)
-        self.__phoneNumberLabel.grid(row=6, column=1, pady=5)
-        self.__sexLabel.grid(row=7, column=1, pady=5)
-        self.__emailLabel.grid(row=8, column=1, pady=5)
-        self.__accountTypeLabel.grid(row=9, column=1, pady=5)
+	def __setEnties(self):
+		self.__identity = ttk.Entry(self, font=("Helvetica", 10))
+		self.__password = ttk.Entry(self, font=("Helvetica", 10), show="*")
+		self.__name = ttk.Entry(self, font=("Helvetica", 10))
+		self.__phone_number = ttk.Entry(self, font=("Helvetica", 10))
+		self.__sex = ttk.Combobox(
+			self,
+			font=("Helvetica", 10),
+			state="readonly",
+			textvariable=tk.StringVar(),
+			values=["Male", "Female"],
+			background="lightgray",
+		)
+		self.__email = ttk.Entry(self, font=("Helvetica", 10))
+		self.__account_type = ttk.Combobox(
+			self,
+			font=("Helvetica", 10),
+			state="readonly",
+			textvariable=tk.StringVar(),
+			values=["Trainee", "Trainer"],
+			background="lightgray",
+		)
+		self.__identity.place(x=235, y=230, width=160, height=20, anchor="center")
+		self.__password.place(x=235, y=260, width=160, height=20, anchor="center")
+		self.__name.place(x=235, y=290, width=160, height=20, anchor="center")
+		self.__phone_number.place(x=235, y=320, width=160, height=20, anchor="center")
+		self.__sex.place(x=235, y=350, width=160, height=20, anchor="center")
+		self.__email.place(x=235, y=380, width=160, height=20, anchor="center")
+		self.__account_type.place(x=235, y=410, width=160, height=20, anchor="center")
 
-    def __setEnties(self):
-        self.__identity = ttk.Entry(
-            self, font=("Helvetica", 10), background="lightgray"
-        )
-        self.__password = ttk.Entry(
-            self, font=("Helvetica", 10), show="*", background="lightgray"
-        )
-        self.__name = ttk.Entry(self, font=("Helvetica", 10), background="lightgray")
-        self.__phoneNumber = ttk.Entry(
-            self, font=("Helvetica", 10), background="lightgray"
-        )
-        self.__sex = ttk.Combobox(
-            self,
-            font=("Helvetica", 10),
-            state="readonly",
-            textvariable=tk.StringVar(),
-            values=["Male", "Female"],
-            background="lightgray",
-        )
-        self.__email = ttk.Entry(self, font=("Helvetica", 10), background="lightgray")
-        self.__accountType = ttk.Combobox(
-            self,
-            font=("Helvetica", 10),
-            state="readonly",
-            textvariable=tk.StringVar(),
-            values=["Trainee", "Trainer"],
-            background="lightgray",
-        )
-        self.__identity.grid(row=3, column=2, pady=5, sticky=tk.W + tk.E)
-        self.__password.grid(row=4, column=2, pady=5, sticky=tk.W + tk.E)
-        self.__name.grid(row=5, column=2, pady=5, sticky=tk.W + tk.E)
-        self.__phoneNumber.grid(row=6, column=2, pady=5, sticky=tk.W + tk.E)
-        self.__sex.grid(row=7, column=2, pady=5, sticky=tk.W + tk.E)
-        self.__email.grid(row=8, column=2, pady=5, sticky=tk.W + tk.E)
-        self.__accountType.grid(row=9, column=2, pady=5, sticky=tk.W + tk.E)
+	def __setButton(self):
+		style = ttk.Style()
+		style.configure(
+			"RoundedButton.TButton",
+			borderwidth=0,
+			relief="flat",
+			background="#c9c9c9",
+			foreground="black",
+			font=("Helvetica", 10),
+		)
+		style.map("RoundedButton.TButton", background=[("active", "#a9a9a9")])
 
-    def __setButton(self):
-        style = ttk.Style()
-        style.configure(
-            "RoundedButton.TButton",
-            borderwidth=0,
-            relief="flat",
-            background="#c9c9c9",
-            foreground="black",
-            font=("Helvetica", 10),
-        )
-        style.map("RoundedButton.TButton", background=[("active", "#a9a9a9")])
-        self.__signUpButton = ttk.Button(
-            self, text="Sign Up", style="RoundedButton.TButton", command=self.__signUp
-        )
-        self.__signUpButton.grid(
-            row=11, column=1, pady=5, columnspan=2, sticky=tk.W + tk.E
-        )
+		self.__sign_up_button = ttk.Button(self, text="Sign Up", style="RoundedButton.TButton", command=self.__signUp)
+		self.__sign_up_button.place(x=180, y=450, width=270, height=30, anchor="center")
 
-    def __show(self):
-        self.pack(fill=tk.BOTH, expand=True)
+	def __signUp(self):
+		identity = self.__identity.get()
+		password = self.__password.get()
+		name = self.__name.get()
+		phone_number = self.__phone_number.get()
+		sex = self.__sex.get()
+		email = self.__email.get()
+		account_type = self.__account_type.get()
 
-    def __signUp(self):
-        identity = self.__identity.get()
-        password = self.__password.get()
-        name = self.__name.get()
-        phoneNumber = self.__phoneNumber.get()
-        sex = self.__sex.get()
-        email = self.__email.get()
-        accountType = self.__accountType.get()
-
-        if (
-            identity == ""
-            or password == ""
-            or name == ""
-            or phoneNumber == ""
-            or sex == ""
-            or email == ""
-            or accountType == ""
-        ):
-            messagebox.showwarning("Warning", "Please fill in all the blanks.")
-            return
+		if (
+			identity == ""
+			or password == ""
+			or name == ""
+			or phone_number == ""
+			or sex == ""
+			or email == ""
+			or account_type == ""
+		):
+			messagebox.showwarning("Warning", "Please fill in all the blanks.")
+			return
