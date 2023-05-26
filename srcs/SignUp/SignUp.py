@@ -2,9 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
-import os
-import sys
-
 from DB.DB import DB
 from UserData.UserData import UserData
 from PersonalInformation import PersonalInformation

@@ -63,18 +63,14 @@ class SignIn(tk.Frame):
 		self.__sign_in_button.place(x=180, y=370, width=270, height=25, anchor="center")
 		self.__sign_up_button.place(x=180, y=405, width=270, height=25, anchor="center")
 
-	# Sign in
 	def __sign_in(self):
-		# Get username and password
 		identity = self.__identity.get()
 		password = self.__password.get()
 
-		# Check if username and password are empty
 		if identity == "" or password == "":
 			messagebox.showerror("Error", "Please fill in all fields")
 			return
 
-		# Check if username and password are correct
 		user = SignInController.get_user_data(identity, password)
 		if user is not None:
 			self.__identity.delete(0, tk.END)

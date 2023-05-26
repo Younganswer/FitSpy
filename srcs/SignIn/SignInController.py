@@ -6,7 +6,7 @@ class SignInController:
 		pass
 
 	@staticmethod
-	def	get_user_data(self, identity, password):
+	def	get_user_data(identity, password):
 		user_data = DB.get_user_data()
 		for user in user_data:
 			if user.get_identity() == identity and user.get_password() == password:

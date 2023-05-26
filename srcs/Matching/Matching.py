@@ -10,7 +10,7 @@ class Matching:
 		pass
 
 	@staticmethod
-	def matching_trainer(self):
+	def matching_trainer():
 		user_data = DB.get_user_data()
 		trainer_list = []
 		for user in user_data:

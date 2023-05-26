@@ -3,10 +3,10 @@ class PersonalInformation:
 		self.__identity = identity
 		self.__password = password
 		self.__name = name
-		self.__phoneNumber = phone_number
+		self.__phone_number = phone_number
 		self.__sex = sex
 		self.__email = email
-		self.__accountType = account_type
+		self.__account_type = account_type
 
 	def get_name(self):
 		return self.__name
