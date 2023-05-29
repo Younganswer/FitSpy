@@ -35,7 +35,7 @@ class PageController(tk.Tk):
 		frames = {}
 		for frame in (SignIn, SignUp, TraineeHome, TrainerHome):
 			frames[frame.__name__] = frame(parent=self.__container, controller=self)
-			frames[frame.__name__].grid(row=0, column=0, sticky="nsew")
+			frames[frame.__name__].pack(side="top", fill="both", expand=True)
 		return frames
 
 	def show_frame(self, page_name):
