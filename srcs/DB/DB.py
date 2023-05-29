@@ -18,7 +18,6 @@ class DB:
 	@staticmethod
 	def	add_user_data(user_data):
 		DB.__user_data.append(user_data)
-		print(DB.__user_data)
 		try:
 			with open("srcs/DB/user_data.pickle", "wb") as f:
 				pickle.dump(DB.__user_data, f)

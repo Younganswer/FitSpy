@@ -24,7 +24,7 @@ class SignUp(tk.Frame):
 
 	def __set_title(self):
 		self.__title = ttk.Label(self, text="Fitspy", font=("Helvetica", 30))
-		self.__title.place(x=180, y=120, anchor="center")
+		self.__title.place(x=180, y=140, anchor="center")
 
 	def __set_labels(self):
 		self.__identity_label = ttk.Label(self, text="ID")
@@ -34,16 +34,16 @@ class SignUp(tk.Frame):
 		self.__sex_label = ttk.Label(self, text="Sex")
 		self.__email_label = ttk.Label(self, text="Email")
 		self.__account_type_label = ttk.Label(self, text="Account Type")
-		self.__identity_label.place(x=100, y=230, width=110, height=20, anchor="center")
-		self.__password_label.place(x=100, y=260, width=110, height=20, anchor="center")
-		self.__name_label.place(x=100, y=290, width=110, height=20, anchor="center")
+		self.__identity_label.place(x=100, y=250, width=110, height=20, anchor="center")
+		self.__password_label.place(x=100, y=280, width=110, height=20, anchor="center")
+		self.__name_label.place(x=100, y=310, width=110, height=20, anchor="center")
 		self.__phone_number_label.place(
-			x=100, y=320, width=110, height=20, anchor="center"
+			x=100, y=340, width=110, height=20, anchor="center"
 		)
-		self.__sex_label.place(x=100, y=350, width=110, height=20, anchor="center")
-		self.__email_label.place(x=100, y=380, width=110, height=20, anchor="center")
+		self.__sex_label.place(x=100, y=370, width=110, height=20, anchor="center")
+		self.__email_label.place(x=100, y=400, width=110, height=20, anchor="center")
 		self.__account_type_label.place(
-			x=100, y=410, width=110, height=20, anchor="center"
+			x=100, y=430, width=110, height=20, anchor="center"
 		)
 
 	def __set_entries(self):
@@ -68,13 +68,13 @@ class SignUp(tk.Frame):
 			values=["Trainee", "Trainer"],
 			background="lightgray",
 		)
-		self.__identity.place(x=235, y=230, width=160, height=20, anchor="center")
-		self.__password.place(x=235, y=260, width=160, height=20, anchor="center")
-		self.__name.place(x=235, y=290, width=160, height=20, anchor="center")
-		self.__phone_number.place(x=235, y=320, width=160, height=20, anchor="center")
-		self.__sex.place(x=235, y=350, width=160, height=20, anchor="center")
-		self.__email.place(x=235, y=380, width=160, height=20, anchor="center")
-		self.__account_type.place(x=235, y=410, width=160, height=20, anchor="center")
+		self.__identity.place(x=235, y=250, width=160, height=20, anchor="center")
+		self.__password.place(x=235, y=280, width=160, height=20, anchor="center")
+		self.__name.place(x=235, y=310, width=160, height=20, anchor="center")
+		self.__phone_number.place(x=235, y=340, width=160, height=20, anchor="center")
+		self.__sex.place(x=235, y=370, width=160, height=20, anchor="center")
+		self.__email.place(x=235, y=400, width=160, height=20, anchor="center")
+		self.__account_type.place(x=235, y=430, width=160, height=20, anchor="center")
 
 	def __set_button(self):
 		style = ttk.Style()
@@ -91,7 +91,7 @@ class SignUp(tk.Frame):
 		self.__sign_up_button = ttk.Button(
 			self, text="Sign Up", style="RoundedButton.TButton", command=self.__sign_up
 		)
-		self.__sign_up_button.place(x=180, y=450, width=270, height=30, anchor="center")
+		self.__sign_up_button.place(x=180, y=470, width=270, height=30, anchor="center")
 
 	def __sign_up(self):
 		identity = self.__identity.get()
@@ -125,13 +125,13 @@ class SignUp(tk.Frame):
 		DB.add_user_data(
 			UserData(
 				PersonalInformation(
-					name,
-					phone_number,
-					sex,
-					email,
-					account_type,
-					identity,
-					password,
+					identity=identity,
+					password=password,
+					name=name,
+					phone_number=phone_number,
+					sex=sex,
+					email=email,
+					account_type=account_type
 				)
 			)
 		)

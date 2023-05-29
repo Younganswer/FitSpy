@@ -24,7 +24,7 @@ class PageController(tk.Tk):
 
 	def __key_pressed(self, event):
 		if event.keysym == "Escape":
-			self.__window.destroy()
+			self.destroy()
 
 	def __init_frames(self):
 		frames = {}
