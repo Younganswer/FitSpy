@@ -1,14 +1,16 @@
 import pickle
 
 class DB:
-	__user_data = []
+	__user_data = __init_DB()
 
 	def	__init_DB():
 		try:
 			with open("DB/user_data.pickle", "rb") as f:
-				DB.__user_data = pickle.load(f)
+				user_data = pickle.load(f)
 		except FileNotFoundError:
-			DB.__user_data = []
+			user_data = []
+		return user_data
+		
 
 
 	@staticmethod
