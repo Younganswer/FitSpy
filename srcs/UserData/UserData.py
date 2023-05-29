@@ -18,6 +18,12 @@ class UserData:
 	def	get_password(self):
 		return self.__personal_information.get_password()
 
+	def	get_name(self):
+		return self.__personal_information.get_name()
+
+	def	get_phone_number(self):
+		return self.__personal_information.get_phone_number()
+
 	def append_progress(self, progress):
 		self.__progresses.append(progress)
 
