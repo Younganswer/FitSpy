@@ -9,7 +9,7 @@ from PersonalInformation import PersonalInformation
 
 class SignUp(tk.Frame):
 	def __init__(self, parent, controller):
-		tk.Frame.__init__(self, parent)
+		tk.Frame.__init__(parent)
 		self.__controller = controller
 		self.__set_widgets()
 
