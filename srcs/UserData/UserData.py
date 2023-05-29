@@ -12,6 +12,11 @@ class UserData:
 	def get_progress(self):
 		return self.__progresses
 
+	def get_identity(self):
+		return self.__personal_information.get_identity()
+	
+	def get_password(self):
+		return self.__personal_information.get_password()
 	def append_progress(self, progress):
 		self.__progresses.append(progress)
 
