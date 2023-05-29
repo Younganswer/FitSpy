@@ -22,19 +22,19 @@ class SignIn(tk.Frame):
 
 	def __set_title(self):
 		self.__title = ttk.Label(self, text="Fitspy", font=("Helvetica", 30))
-		self.__title.place(x=180, y=160, anchor="center")
+		self.__title.place(x=180, y=210, anchor="center")
 
 	def __set_labels(self):
 		self.__identity_label = ttk.Label(self, text="ID")
 		self.__password_label = ttk.Label(self, text="Password")
-		self.__identity_label.place(x=90, y=290, width=90, height=20, anchor="center")
-		self.__password_label.place(x=90, y=320, width=90, height=20, anchor="center")
+		self.__identity_label.place(x=90, y=330, width=90, height=20, anchor="center")
+		self.__password_label.place(x=90, y=360, width=90, height=20, anchor="center")
 
 	def __set_entries(self):
 		self.__identity = ttk.Entry(self, font=("Helvetica", 10))
 		self.__password = ttk.Entry(self, font=("Helvetica", 10), show="*")
-		self.__identity.place(x=225, y=290, width=180, height=20, anchor="center")
-		self.__password.place(x=225, y=320, width=180, height=20, anchor="center")
+		self.__identity.place(x=225, y=330, width=180, height=20, anchor="center")
+		self.__password.place(x=225, y=360, width=180, height=20, anchor="center")
 
 	def __set_buttons(self):
 		style = ttk.Style()
@@ -60,8 +60,8 @@ class SignIn(tk.Frame):
 			command=lambda: self.__controller.show_frame("SignUp"),
 			style="RoundedButton.TButton",
 		)
-		self.__sign_in_button.place(x=180, y=370, width=270, height=25, anchor="center")
-		self.__sign_up_button.place(x=180, y=405, width=270, height=25, anchor="center")
+		self.__sign_in_button.place(x=180, y=410, width=270, height=25, anchor="center")
+		self.__sign_up_button.place(x=180, y=445, width=270, height=25, anchor="center")
 
 	def __sign_in(self):
 		identity = self.__identity.get()
