@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 from DB.DB import DB
 from UserData.UserData import UserData
-from PersonalInformation import PersonalInformation
+from PersonalInformation.PersonalInformation import PersonalInformation
 
 
 class SignUp(tk.Frame):
