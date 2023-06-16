@@ -11,7 +11,8 @@ class Matching:
 
 	@staticmethod
 	def matching_trainer():
-		user_data = DB.get_user_data()
+		db = DB()
+		user_data = db.get_user_data()
 		trainer_list = []
 		for user in user_data:
 			if user.get_account_type() == "trainer":

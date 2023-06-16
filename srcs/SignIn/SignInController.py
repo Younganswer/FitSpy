@@ -1,5 +1,5 @@
 from DB.DB import DB
-
+from tkinter import messagebox
 
 class SignInController:
 	def __init__(self):
@@ -7,9 +7,16 @@ class SignInController:
 
 	@staticmethod
 	def	get_user_data(identity, password):
-		user_data = DB.get_user_data()
+		if identity == "" or password == "":
+			messagebox.showerror("Error", "Please fill in all fields")
+			return None
+		
+		db = DB()
+		user_data = db.get_user_data()
+
 		for user in user_data:
-			print("user.get_identity() = {}, user.get_password() = {}".format(user.get_identity(), user.get_password()))
 			if user.get_identity() == identity and user.get_password() == password:
 				return user
+	
+		messagebox.showerror("Error", "Incorrect username or password")
 		return None

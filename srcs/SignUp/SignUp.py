@@ -1,32 +1,35 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
+from Page.Page import APage
+from SignUp.SignUpController import SignUpController
 
-from DB.DB import DB
-from UserData.UserData import UserData
-from PersonalInformation.PersonalInformation import PersonalInformation
-
-
-class SignUp(tk.Frame):
+class SignUp(APage):
 	def __init__(self, parent, controller):
-		super().__init__(parent)
-		self.__controller = controller
-		self.__set_widgets()
+		super().__init__(parent, controller)
+		self._set_page()
 
 	def __del__(self):
 		pass
 
-	def __set_widgets(self):
-		self.__set_title()
-		self.__set_labels()
-		self.__set_entries()
+	def	_set_page(self):
+		self._set_widgets()
+		self._set_title()
+		self._set_labels()
+		self._set_entries()
 		self.__set_button()
 
-	def __set_title(self):
+	def _set_widgets(self):
+		self._set_title()
+		self._set_labels()
+		self._set_entries()
+		self.__set_button()
+
+	def _set_title(self):
 		self.__title = ttk.Label(self, text="Fitspy", font=("Helvetica", 30))
 		self.__title.place(x=180, y=140, anchor="center")
 
-	def __set_labels(self):
+	def _set_labels(self):
 		self.__identity_label = ttk.Label(self, text="ID")
 		self.__password_label = ttk.Label(self, text="Password")
 		self.__name_label = ttk.Label(self, text="Name")
@@ -46,7 +49,7 @@ class SignUp(tk.Frame):
 			x=100, y=430, width=110, height=20, anchor="center"
 		)
 
-	def __set_entries(self):
+	def _set_entries(self):
 		self.__identity = ttk.Entry(self, font=("Helvetica", 10))
 		self.__password = ttk.Entry(self, font=("Helvetica", 10), show="*")
 		self.__name = ttk.Entry(self, font=("Helvetica", 10))
@@ -94,59 +97,14 @@ class SignUp(tk.Frame):
 		self.__sign_up_button.place(x=180, y=470, width=270, height=30, anchor="center")
 
 	def __sign_up(self):
-		identity = self.__identity.get()
-		password = self.__password.get()
-		name = self.__name.get()
-		phone_number = self.__phone_number.get()
-		sex = self.__sex.get()
-		email = self.__email.get()
-		account_type = self.__account_type.get()
+		personal_information = {
+			identity: self.__identity.get(),
+			password: self.__password.get(),
+			name: self.__name.get(),
+			phone_number: self.__phone_number.get(),
+			sex: self.__sex.get(),
+			email: self.__email.get(),
+			account_type: self.__account_type.get()
+		}
 
-		if (
-			identity == ""
-			or password == ""
-			or name == ""
-			or phone_number == ""
-			or sex == ""
-			or email == ""
-			or account_type == ""
-		):
-			messagebox.showwarning("Warning", "Please fill in all the blanks.")
-			return
-
-		if not self.__valid_id(identity):
-			messagebox.showwarning("Warning", "This ID already exists.")
-			return
-		
-		if not self.__already_exist(name, phone_number):
-			messagebox.showwarning("Warning", "Account already exists.")
-			return
-
-		DB.add_user_data(
-			UserData(
-				PersonalInformation(
-					identity=identity,
-					password=password,
-					name=name,
-					phone_number=phone_number,
-					sex=sex,
-					email=email,
-					account_type=account_type
-				)
-			)
-		)
-		messagebox.showinfo("Success", "Sign Up Success!")
-	
-	def	__valid_id(self, identity):
-		user_data = DB.get_user_data()
-		for user in user_data:
-			if user.get_identity() == identity:
-				return False
-		return True
-	
-	def	__already_exist(self, name, phone_number):
-		user_data = DB.get_user_data()
-		for user in user_data:
-			if user.get_name() == name and user.get_phone_number() == phone_number:
-				return False
-		return True
+		SignUpController.sign_up(personal_information)

@@ -1,10 +1,9 @@
 import tkinter as tk
-from SignIn.SignIn import SignIn
-from SignUp.SignUp import SignUp
-from Home.TraineeHome import TraineeHome
-from Home.TrainerHome import TrainerHome
+from Page.Page import PageFactory
 
-
+# Model-View distribution principle
+# MVC(Model-View Controller) pattern
+# Pure fabrication
 class PageController(tk.Tk):
 	def __init__(self):
 		super().__init__()
@@ -28,13 +27,14 @@ class PageController(tk.Tk):
 
 	def __init_frames(self):
 		frames = {}
-		for frame in (SignIn, SignUp, TraineeHome, TrainerHome):
-			frames[frame.__name__] = frame(parent=self, controller=self)
+		for page_name in ["SignIn", "SignUp", "TraineeHome", "TrainerHome"]:
+			frames[page_name] = PageFactory().create_page(page_name, self, self)
 		return frames
 
 	def show_frame(self, page_name):
 		if page_name not in self.__frames:
-			raise ValueError("Invalid page name")
+			raise ValueError("PageController: Invalid page name")
+
 		if self.__current_frame is not None:
 			self.__current_frame.pack_forget()
 		self.__current_frame = self.__frames[page_name]
