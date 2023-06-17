@@ -6,27 +6,27 @@ class TrainerHome(APage):
 	def __init__(self, parent, controller):
 		self.__my_trainees = []
 		super().__init__(parent, controller)
-		self._set_page()
+		self._set_widgets()
 
 	def __del__(self):
 		pass
 
-	def	_set_page(self):
+	def	_set_widgets(self):
 		self._set_widgets()
-		self._set_title()
-		self._set_buttons()
-		self._set_labels()
+		self.__set_title()
+		self.___set_buttons()
+		self.__set_labels()
 
 	def _set_widgets(self):
-		self._set_title()
-		self._set_buttons()
-		self._set_labels()
+		self.__set_title()
+		self.___set_buttons()
+		self.__set_labels()
 
-	def _set_title(self):
+	def __set_title(self):
 		self.__title = ttk.Label(self, text="My trainees", font=("Helvetica", 20), anchor="center")
 		self.__title.place(x=180, y=160, anchor="center")
 
-	def	_set_buttons(self):
+	def	___set_buttons(self):
 		style = ttk.Style()
 		style.configure(
 			"RoundedButton.TButton",
@@ -47,7 +47,7 @@ class TrainerHome(APage):
 			check_progress_button.place(x=250, y=300+i*40, width=130, height=30, anchor="center")
 			i += 1
 	
-	def	_set_labels(self):
+	def	__set_labels(self):
 		i = 0
 		for trainee in self.__my_trainees:
 			trainee_name_label = ttk.Label(self, text=trainee.get_name(), font=("Helvetica", 10), anchor="center")

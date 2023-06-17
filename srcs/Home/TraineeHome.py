@@ -5,27 +5,27 @@ from Page.Page import APage
 class TraineeHome(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
-		self._set_page()
+		self._set_widgets()
 	
 	def __del__(self):
 		pass
 
-	def	_set_page(self):
+	def	_set_widgets(self):
 		self._set_widgets()
-		self._set_title()
-		self._set_buttons()
-		self._set_labels()
+		self.__set_title()
+		self.___set_buttons()
+		self.__set_labels()
 
 	def _set_widgets(self):
-		self._set_title()
-		self._set_buttons()
-		self._set_labels()
+		self.__set_title()
+		self.___set_buttons()
+		self.__set_labels()
 
-	def _set_title(self):
+	def __set_title(self):
 		self.__title = ttk.Label(self, text="Today Progress", font=("Helvetica", 20), anchor="center")
 		self.__title.place(x=180, y=160, anchor="center")
 
-	def	_set_buttons(self):
+	def	___set_buttons(self):
 		style = ttk.Style()
 		style.configure(
 			"RoundedButton.TButton",
@@ -44,7 +44,7 @@ class TraineeHome(APage):
 		self.__find_trainer_button = ttk.Button(self, image=self.__find_trainer_image, style="RoundedButton.TButton", command=lambda: self._controller.show_frame("FindTrainer"))
 		self.__find_trainer_button.place(x=330, y=30, width=40, height=40, anchor="center")
 	
-	def	_set_labels(self):
+	def	__set_labels(self):
 		# TODO: Get data from database
 		self.__used_calories_label = ttk.Label(self, text="Used Calories", font=("Helvetica", 10), anchor="center")
 		self.__work_out_time_label = ttk.Label(self, text="Work Out Time", font=("Helvetica", 10), anchor="center")

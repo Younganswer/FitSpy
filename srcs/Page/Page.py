@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod
 import tkinter as tk
 
+# Polymorphism
+# Abstract class
+# Declare pure virtual functions to force subclasses to implement them
 class APage(ABC, tk.Frame):
 	def	__init__(self, parent, controller):
 		ABC.__init__(self)
@@ -12,7 +15,7 @@ class APage(ABC, tk.Frame):
 		pass
 
 	@abstractmethod
-	def	_set_page(self):
+	def	_set_widgets(self):
 		pass
 
 # Factory pattern
@@ -32,13 +35,14 @@ class PageFactory:
 		from Home.TraineeHome import TraineeHome
 		from Home.TrainerHome import TrainerHome
 
-		if page_name == "SignIn":
-			return SignIn(parent, controller)
-		elif page_name == "SignUp":
-			return SignUp(parent, controller)
-		elif page_name == "TraineeHome":
-			return TraineeHome(parent, controller)
-		elif page_name == "TrainerHome":
-			return TrainerHome(parent, controller)
-		else:
+		pages = {
+			"SignIn": SignIn,
+			"SignUp": SignUp,
+			"TraineeHome": TraineeHome,
+			"TrainerHome": TrainerHome
+		}
+
+		if page_name not in pages:
 			raise ValueError("PageFactory: Invalid page name")
+
+		return pages[page_name](parent, controller)

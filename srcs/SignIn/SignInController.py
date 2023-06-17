@@ -2,8 +2,8 @@ from DB.DB import DB
 from tkinter import messagebox
 
 class SignInController:
-	def __init__(self):
-		pass
+	def __new__(cls, *args, **kwargs):
+		raise TypeError("Static class 'SignInController' cannot be instantiated")
 
 	@staticmethod
 	def	get_user_data(identity, password):
@@ -12,11 +12,15 @@ class SignInController:
 			return None
 		
 		db = DB()
-		user_data = db.get_user_data()
+		users_data_by_id = db.get_users_data_by_id()
+		user = None
 
-		for user in user_data:
-			if user.get_identity() == identity and user.get_password() == password:
-				return user
-	
-		messagebox.showerror("Error", "Incorrect username or password")
-		return None
+		try:
+			user = users_data_by_id[identity]
+		except:
+			messagebox.showerror("Error", "Incorrect username or password")
+
+		if user.get_password() != password:
+			messagebox.showerror("Error", "Incorrect username or password")
+			return None
+		return user

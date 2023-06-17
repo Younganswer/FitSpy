@@ -4,8 +4,8 @@ from UserData.UserData import UserData
 from PersonalInformation.PersonalInformation import PersonalInformation
 
 class SignUpController:
-	def __init__(self):
-		pass
+	def __new__(cls, *args, **kwargs):
+		raise TypeError("Static class 'SignUpController' cannot be instantiated")
 
 	@staticmethod
 	def	sign_up(personal_information):
@@ -21,33 +21,38 @@ class SignUpController:
 			messagebox.showwarning("Warning", "Please fill in all the blanks.")
 			return
 
-		if not self.__valid_id(identity):
+		if SignUpController.__already_exist_id(personal_information["identity"]):
 			messagebox.showwarning("Warning", "This ID already exists.")
 			return
 		
-		if not self.__already_exist(name, phone_number):
-			messagebox.showwarning("Warning", "Account already exists.")
+		if SignUpController.__already_own_account(personal_information["phone_number"]):
+			messagebox.showwarning("Warning", "You already own an account.")
 			return
 
-		self.__add_user_data(personal_information)
+		SignUpController.__add_user_data(personal_information)
 
-	def	__valid_id(self, identity):
+	@staticmethod
+	def	__already_exist_id(identity):
 		db = DB()
-		user_data = db.get_user_data()
-		for user in user_data:
-			if user.get_identity() == identity:
-				return False
+		users_data_by_id = db.get_users_data_by_id()
+		try:
+			users_data_by_id[identity]
+		except:
+			return False
 		return True
 	
-	def	__already_exist(self, name, phone_number):
+	@staticmethod
+	def	__already_own_account(phone_number):
 		db = DB()
-		user_data = db.get_user_data()
-		for user in user_data:
-			if user.get_name() == name and user.get_phone_number() == phone_number:
-				return False
+		users_data_by_phone_number = db.get_users_data_by_phone_number()
+		try:
+			users_data_by_phone_number[phone_number]
+		except:
+			return False
 		return True
 	
-	def	__add_user_data(self, personal_information):
+	@staticmethod
+	def	__add_user_data(personal_information):
 		db = DB()
 		db.add_user_data(
 			UserData(
@@ -62,5 +67,4 @@ class SignUpController:
 				)
 			)
 		)
-		db.set_user_data(user_data)
 		messagebox.showinfo("Success", "Sign Up Success!")

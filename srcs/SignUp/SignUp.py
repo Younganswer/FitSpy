@@ -7,29 +7,22 @@ from SignUp.SignUpController import SignUpController
 class SignUp(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
-		self._set_page()
+		self._set_widgets()
 
 	def __del__(self):
 		pass
 
-	def	_set_page(self):
-		self._set_widgets()
-		self._set_title()
-		self._set_labels()
-		self._set_entries()
+	def	_set_widgets(self):
+		self.__set_title()
+		self.__set_labels()
+		self.__set_entries()
 		self.__set_button()
 
-	def _set_widgets(self):
-		self._set_title()
-		self._set_labels()
-		self._set_entries()
-		self.__set_button()
-
-	def _set_title(self):
+	def __set_title(self):
 		self.__title = ttk.Label(self, text="Fitspy", font=("Helvetica", 30))
 		self.__title.place(x=180, y=140, anchor="center")
 
-	def _set_labels(self):
+	def __set_labels(self):
 		self.__identity_label = ttk.Label(self, text="ID")
 		self.__password_label = ttk.Label(self, text="Password")
 		self.__name_label = ttk.Label(self, text="Name")
@@ -49,7 +42,7 @@ class SignUp(APage):
 			x=100, y=430, width=110, height=20, anchor="center"
 		)
 
-	def _set_entries(self):
+	def __set_entries(self):
 		self.__identity = ttk.Entry(self, font=("Helvetica", 10))
 		self.__password = ttk.Entry(self, font=("Helvetica", 10), show="*")
 		self.__name = ttk.Entry(self, font=("Helvetica", 10))
@@ -98,13 +91,13 @@ class SignUp(APage):
 
 	def __sign_up(self):
 		personal_information = {
-			identity: self.__identity.get(),
-			password: self.__password.get(),
-			name: self.__name.get(),
-			phone_number: self.__phone_number.get(),
-			sex: self.__sex.get(),
-			email: self.__email.get(),
-			account_type: self.__account_type.get()
+			"identity": self.__identity.get(),
+			"password": self.__password.get(),
+			"name": self.__name.get(),
+			"phone_number": self.__phone_number.get(),
+			"sex": self.__sex.get(),
+			"email": self.__email.get(),
+			"account_type": self.__account_type.get()
 		}
 
 		SignUpController.sign_up(personal_information)

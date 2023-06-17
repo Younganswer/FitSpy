@@ -7,7 +7,7 @@ from Page.Page import PageFactory
 class PageController(tk.Tk):
 	def __init__(self):
 		super().__init__()
-		self.__set_window_configurations()
+		self._set_window_configurations()
 		self.__frames = self.__init_frames()
 		self.__current_frame = None
 		self.show_frame("SignIn")
@@ -15,7 +15,7 @@ class PageController(tk.Tk):
 	def __del__(self):
 		pass
 		
-	def __set_window_configurations(self):
+	def _set_window_configurations(self):
 		self.title("Fitspy")
 		self.geometry("360x640")
 		self.resizable(False, False)
