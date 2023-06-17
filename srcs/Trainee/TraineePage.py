@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from Page.Page import APage
 
-class TraineeHome(APage):
+class TraineePage(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
 		self._set_widgets()
@@ -13,19 +13,19 @@ class TraineeHome(APage):
 	def	_set_widgets(self):
 		self._set_widgets()
 		self.__set_title()
-		self.___set_buttons()
+		self.__set_buttons()
 		self.__set_labels()
 
 	def _set_widgets(self):
 		self.__set_title()
-		self.___set_buttons()
+		self.__set_buttons()
 		self.__set_labels()
 
 	def __set_title(self):
 		self.__title = ttk.Label(self, text="Today Progress", font=("Helvetica", 20), anchor="center")
 		self.__title.place(x=180, y=160, anchor="center")
 
-	def	___set_buttons(self):
+	def	__set_buttons(self):
 		style = ttk.Style()
 		style.configure(
 			"RoundedButton.TButton",
@@ -41,7 +41,7 @@ class TraineeHome(APage):
 		self.__personal_information_button.place(x=280, y=30, width=40, height=40, anchor="center")
 
 		self.__find_trainer_image = tk.PhotoImage(file="assets/FindTrainerButton.png").subsample(16)
-		self.__find_trainer_button = ttk.Button(self, image=self.__find_trainer_image, style="RoundedButton.TButton", command=lambda: self._controller.show_frame("FindTrainer"))
+		self.__find_trainer_button = ttk.Button(self, image=self.__find_trainer_image, style="RoundedButton.TButton", command=lambda: self._controller.show_frame("Matching"))
 		self.__find_trainer_button.place(x=330, y=30, width=40, height=40, anchor="center")
 	
 	def	__set_labels(self):

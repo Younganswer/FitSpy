@@ -27,7 +27,7 @@ class PageController(tk.Tk):
 
 	def __init_frames(self):
 		frames = {}
-		for page_name in ["SignIn", "SignUp", "TraineeHome", "TrainerHome"]:
+		for page_name in ["SignIn", "SignUp", "Trainee", "Trainer", "PersonalInformation", "Matching"]:
 			frames[page_name] = PageFactory().create_page(page_name, self, self)
 		return frames
 

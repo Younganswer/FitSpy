@@ -4,7 +4,7 @@ from tkinter import messagebox
 from Page.Page import APage
 from SignUp.SignUpController import SignUpController
 
-class SignUp(APage):
+class SignUpPage(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
 		self._set_widgets()
@@ -101,3 +101,14 @@ class SignUp(APage):
 		}
 
 		SignUpController.sign_up(personal_information)
+		self.__show_sign_in_page()
+
+	def	__show_sign_in_page(self):
+		self.__identity.delete(0, tk.END)
+		self.__password.delete(0, tk.END)	
+		self.__name.delete(0, tk.END)
+		self.__phone_number.delete(0, tk.END)
+		self.__sex.delete(0, tk.END)
+		self.__email.delete(0, tk.END)
+		self.__account_type.delete(0, tk.END)
+		self._controller.show_frame("SignIn")

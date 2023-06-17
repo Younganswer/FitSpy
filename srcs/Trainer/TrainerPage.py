@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from Page.Page import APage
 
-class TrainerHome(APage):
+class TrainerPage(APage):
 	def __init__(self, parent, controller):
 		self.__my_trainees = []
 		super().__init__(parent, controller)
@@ -14,19 +14,19 @@ class TrainerHome(APage):
 	def	_set_widgets(self):
 		self._set_widgets()
 		self.__set_title()
-		self.___set_buttons()
+		self.__set_buttons()
 		self.__set_labels()
 
 	def _set_widgets(self):
 		self.__set_title()
-		self.___set_buttons()
+		self.__set_buttons()
 		self.__set_labels()
 
 	def __set_title(self):
 		self.__title = ttk.Label(self, text="My trainees", font=("Helvetica", 20), anchor="center")
 		self.__title.place(x=180, y=160, anchor="center")
 
-	def	___set_buttons(self):
+	def	__set_buttons(self):
 		style = ttk.Style()
 		style.configure(
 			"RoundedButton.TButton",

@@ -30,16 +30,20 @@ class PageFactory:
 		return cls.__instance
 	
 	def	create_page(self, page_name, parent, controller):
-		from SignIn.SignIn import SignIn
-		from SignUp.SignUp import SignUp
-		from Home.TraineeHome import TraineeHome
-		from Home.TrainerHome import TrainerHome
+		from SignIn.SignInPage import SignInPage
+		from SignUp.SignUpPage import SignUpPage
+		from Trainee.TraineePage import TraineePage
+		from Trainer.TrainerPage import TrainerPage
+		from PersonalInformation.PersonalInformationPage import PersonalInformationPage
+		from Matching.MatchingPage import MatchingPage
 
 		pages = {
-			"SignIn": SignIn,
-			"SignUp": SignUp,
-			"TraineeHome": TraineeHome,
-			"TrainerHome": TrainerHome
+			"SignIn": SignInPage,
+			"SignUp": SignUpPage,
+			"Trainee": TraineePage,
+			"Trainer": TrainerPage,
+			"PersonalInformation": PersonalInformationPage,
+			"Matching": MatchingPage
 		}
 
 		if page_name not in pages:

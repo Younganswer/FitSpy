@@ -19534,7 +19534,7 @@
 											"top": 432,
 											"width": 195.45068359375,
 											"height": 13,
-											"text": "-___set_buttons()",
+											"text": "-__set_buttons()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -20139,7 +20139,7 @@
 											"top": 567,
 											"width": 168.0478515625,
 											"height": 13,
-											"text": "-___set_buttons()",
+											"text": "-__set_buttons()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -25208,7 +25208,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIZ+kuT5O6v+c="
 							},
-							"name": "___set_buttons",
+							"name": "__set_buttons",
 							"visibility": "private"
 						},
 						{
@@ -25492,7 +25492,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIZ+kuT5POzVo="
 							},
-							"name": "___set_buttons",
+							"name": "__set_buttons",
 							"visibility": "private"
 						},
 						{

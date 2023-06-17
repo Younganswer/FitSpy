@@ -3,7 +3,7 @@ from tkinter import ttk
 from Page.Page import APage
 from SignIn.SignInController import SignInController
 
-class SignIn(APage):
+class SignInPage(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
 		self._set_widgets()
@@ -15,7 +15,7 @@ class SignIn(APage):
 		self.__set_title()
 		self.__set_labels()
 		self.__set_entries()
-		self.___set_buttons()
+		self.__set_buttons()
 
 	def __set_title(self):
 		self.__title = ttk.Label(self, text="Fitspy", font=("Helvetica", 30))
@@ -33,7 +33,7 @@ class SignIn(APage):
 		self.__identity.place(x=225, y=320, width=180, height=20, anchor="center")
 		self.__password.place(x=225, y=350, width=180, height=20, anchor="center")
 
-	def ___set_buttons(self):
+	def __set_buttons(self):
 		style = ttk.Style()
 		style.configure(
 			"RoundedButton.TButton",
@@ -69,6 +69,6 @@ class SignIn(APage):
 			self.__identity.delete(0, tk.END)
 			self.__password.delete(0, tk.END)
 			if user.get_account_type() == "Trainee":
-				self._controller.show_frame("TraineeHome")
+				self._controller.show_frame("Trainee")
 			else:
-				self._controller.show_frame("TrainerHome")
+				self._controller.show_frame("Trainer")
