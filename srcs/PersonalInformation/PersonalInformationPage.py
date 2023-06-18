@@ -36,7 +36,7 @@ class PersonalInformationPage(APage):
 	
 	def __set_values(self):
 		controller = UserDataController()
-		user_data = controller.get_cur_user_data()
+		user_data = controller.get_user_data()
 		personal_information = user_data.get_personal_information()
 		
 		self.__identity = ttk.Label(self, text=personal_information.get_identity())

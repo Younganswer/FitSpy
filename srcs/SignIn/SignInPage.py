@@ -67,7 +67,7 @@ class SignInPage(APage):
 		user = SignInController.get_user_data(identity, password)
 		if user is not None:
 			controller = UserDataController()
-			controller.set_cur_user_data(user)
+			controller.set_user_data(user)
 			self.__identity.delete(0, tk.END)
 			self.__password.delete(0, tk.END)
 			if user.get_account_type() == "Trainee":
