@@ -2,11 +2,11 @@ import tkinter as tk
 from tkinter import ttk
 from Page.Page import APage
 from SignIn.SignInController import SignInController
+from UserData.UserDataController import UserDataController
 
 class SignInPage(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
-		self._set_widgets()
 
 	def __del__(self):
 		pass
@@ -66,6 +66,8 @@ class SignInPage(APage):
 
 		user = SignInController.get_user_data(identity, password)
 		if user is not None:
+			controller = UserDataController()
+			controller.set_cur_user_data(user)
 			self.__identity.delete(0, tk.END)
 			self.__password.delete(0, tk.END)
 			if user.get_account_type() == "Trainee":

@@ -39,3 +39,4 @@ class PageController(tk.Tk):
 			self.__current_frame.pack_forget()
 		self.__current_frame = self.__frames[page_name]
 		self.__current_frame.pack(fill="both", expand=True)
+		self.__current_frame._set_widgets()

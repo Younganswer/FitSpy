@@ -7,7 +7,6 @@ from SignUp.SignUpController import SignUpController
 class SignUpPage(APage):
 	def __init__(self, parent, controller):
 		super().__init__(parent, controller)
-		self._set_widgets()
 
 	def __del__(self):
 		pass

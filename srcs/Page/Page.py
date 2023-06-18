@@ -9,7 +9,6 @@ class APage(ABC, tk.Frame):
 		ABC.__init__(self)
 		tk.Frame.__init__(self, parent)
 		self._controller = controller
-		self._set_widgets()
 
 	def	__del__(self):
 		pass

@@ -6,16 +6,9 @@ class TrainerPage(APage):
 	def __init__(self, parent, controller):
 		self.__my_trainees = []
 		super().__init__(parent, controller)
-		self._set_widgets()
 
 	def __del__(self):
 		pass
-
-	def	_set_widgets(self):
-		self._set_widgets()
-		self.__set_title()
-		self.__set_buttons()
-		self.__set_labels()
 
 	def _set_widgets(self):
 		self.__set_title()
