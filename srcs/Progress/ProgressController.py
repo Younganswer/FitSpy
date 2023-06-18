@@ -1,4 +1,5 @@
 from Progress.Progress import Progress
+from UserData.UserDataController import UserDataController
 
 class ProgressController:
 	__instance = None

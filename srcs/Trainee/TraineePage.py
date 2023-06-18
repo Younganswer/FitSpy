@@ -21,7 +21,7 @@ class TraineePage(APage):
 	def	__update_progress(self):
 		super_wearable_device = SuperWearableDevice()
 		controller = ProgressController()
-		controller.set_progress(super_wearable_device.get_fitness_data(), super_wearable_device.get_diet(), "Good")
+		controller.set_progress(Progress(super_wearable_device.get_fitness_data(), super_wearable_device.get_diet(), "Good"))
 
 	def __set_title(self):
 		self.__title = ttk.Label(self, text="Today Progress", font=("Helvetica", 20), anchor="center")
@@ -61,12 +61,12 @@ class TraineePage(APage):
 		self.__calories_of_diet_value_label = ttk.Label(self, text=progress.get_diet(), font=("Helvetica", 10), anchor="center")
 		self.__feedback_value_label = ttk.Label(self, text=feedback, font=("Helvetica", 10), anchor="center")
 
-		self.__used_calories_label.place(x=180, y=200, width=100, height=20, anchor="center")
-		self.__work_out_time_label.place(x=180, y=230, width=100, height=20, anchor="center")
-		self.__calories_of_diet_label.place(x=180, y=260, width=100, height=20, anchor="center")
-		self.__feedback_label.place(x=180, y=290, width=100, height=20, anchor="center")
-		self.__used_calories_value_label.place(x=280, y=200, width=100, height=20, anchor="center")
-		self.__work_out_time_value_label.place(x=280, y=230, width=100, height=20, anchor="center")
-		self.__calories_of_diet_value_label.place(x=280, y=260, width=100, height=20, anchor="center")
-		self.__feedback_value_label.place(x=280, y=290, width=100, height=20, anchor="center")
+		self.__used_calories_label.place(x=135, y=300, width=110, height=20, anchor="center")
+		self.__work_out_time_label.place(x=135, y=330, width=110, height=20, anchor="center")
+		self.__calories_of_diet_label.place(x=335, y=260, width=110, height=20, anchor="center")
+		self.__feedback_label.place(x=135, y=390, width=110, height=20, anchor="center")
+		self.__used_calories_value_label.place(x=255, y=300, width=100, height=20, anchor="center")
+		self.__work_out_time_value_label.place(x=255, y=330, width=100, height=20, anchor="center")
+		self.__calories_of_diet_value_label.place(x=355, y=260, width=100, height=20, anchor="center")
+		self.__feedback_value_label.place(x=255, y=390, width=100, height=20, anchor="center")
 
